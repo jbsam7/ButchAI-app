@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Sign Up - Butch AI</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- hCaptcha Widget -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Logo Text -->
+        <div class="logo-text" aria-label="ButchAI">
+            Butch<span class="ai">AI</span>
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links-left">
+            <a href="/">Home</a>
+            <!-- Dropdown for Features -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+
+        <!-- Right Navigation Links -->
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-text">
+            Sign Up Today!
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <h1>Create Your Account</h1>
+        <form action="{{ url_for('signup_route') }}" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required maxlength="50" placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required maxlength="50" placeholder="Enter your last name">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9_]+" placeholder="Choose a username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required maxlength="100" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required minlength="8" maxlength="50" oninput="validatePassword()" placeholder="Create a password">
+                <!-- Password criteria feedback -->
+                <ul id="passwordCriteria" style="color: white; margin-left: 0; padding-left: 20px; list-style-type: none;">
+                    <li id="minLength" style="color: red;">At least 8 characters</li>
+                    <li id="uppercase" style="color: red;">At least one uppercase letter</li>
+                    <li id="lowercase" style="color: red;">At least one lowercase letter</li>
+                    <li id="number" style="color: red;">At least one number</li>
+                    <li id="special" style="color: red;">At least one special character (@, $, !, %, *, ?, &)</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="8" maxlength="50" oninput="validatePassword()" placeholder="Confirm your password">
+                <!-- Password match feedback -->
+                <small id="passwordMatch" style="color: red;"></small>
+            </div>
+
+            <!-- Subscription Tier Selection -->
+            <div class="form-group">
+                <label>Select Subscription Tier:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="basic" name="subscription_tier" value="basic" required>
+                    <label class="form-check-label" for="basic">Basic - $5/month</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="premium" name="subscription_tier" value="premium">
+                    <label class="form-check-label" for="premium">Premium - $15/month</label>
+                </div>
+            </div>
+            <div class="terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I have read and agree to the
+                    <a href="/terms" target="_blank">Terms and Conditions</a> and 
+                    <a href="/privacy" target="_blank">Privacy Policy</a>
+                </label>
+            </div>
+
+            <div class="captcha-container">
+                <!-- hCaptcha Widget -->
+                <div class="h-captcha" data-sitekey="4a78635c-db18-4b7e-ae10-ab8eca3a57f2"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div>
+    </footer>
+
+     <!-- JavaScript for Hamburger Menu Toggle -->
+     <script src="{{ url_for('static', filename='js/signup.js') }}"></script> 
+
+    
+</body>
+</html>

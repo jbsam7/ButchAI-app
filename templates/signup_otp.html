@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://js.hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com;">
+
+    <title>OTP Verification - Butch AI</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- hCaptcha Widget (if needed) -->
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup_otp.css') }}">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Logo Text -->
+        <div class="logo-text" aria-label="ButchAI">
+            Butch<span class="ai">AI</span>
+        </div>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Navigation Links Left -->
+        <div class="nav-links-left">
+            <a href="/">Home</a>
+            <!-- Dropdown for Features -->
+            <div class="dropdown">
+                <a href="#">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+
+        <!-- Right Navigation Links -->
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-text">
+            OTP Verification
+        </div>
+    </div>
+
+    <!-- OTP Verification Form Container -->
+    <div class="otp-container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <p class="flash-message">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <!-- OTP Verification Form -->
+        <form method="POST" action="/verify-otp-signup" class="otp-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="text" name="otp" placeholder="Enter your OTP" required maxlength="6">
+            <input type="submit" id="submit">
+        </form>
+        <!-- Additional Links -->
+        <a href="/login">Back to Login</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a> |
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div> 
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script src="{{ url_for('static', filename='js/signup_otp.js') }}"></script> 
+</body>
+</html>

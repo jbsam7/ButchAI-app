@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Plan - How It Works</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/premium.css') }}">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-text">
+            Butch<span class="ai">AI</span>
+        </div>
+        <div class="nav-links-left">
+            <a href="/">Home</a>
+            <div class="dropdown">
+                <a href="#">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-text">
+            How the Premium Product Works
+        </div>
+        <!-- Removed the banner image as per your request -->
+    </div>
+
+    <!-- Section explaining the Premium product -->
+    <div class="section">
+        <h2>What You Get with the Premium Plan</h2>
+        <p>
+            The Premium Plan is designed for those who need more flexibility and advanced narration features. For just $15 a month, you’ll receive:
+        </p>
+        <ul>
+            <li>Up to 10 minutes of AI-powered text-to-speech narration each month using the ElevenLabs API.</li>
+            <li>Easy-to-use interface for uploading video and entering prompts for the best narration results.</li>
+            <li>Access to our advanced key frame-based narration to highlight specific parts of your video.</li>
+            <li>Priority customer support and access to new features as they are released.</li>
+        </ul>
+        <!-- Example Image -->
+        <img src="{{ url_for('static', filename='images/bball.jpg') }}" alt="Premium Plan Features">
+    </div>
+
+    <!-- Call to Action section -->
+    <div class="cta-section">
+        <h2>Upgrade to Premium Today</h2>
+        <p>
+            Ready to take your content to the next level? Join the Premium Plan for only $15 a month and enjoy enhanced narration and features designed for professionals.
+        </p>
+        <a href="/signup" class="cta-button">Upgrade to Premium</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div> 
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script src="{{ url_for('static', filename='js/premium.js') }}"></script> 
+    
+</body>
+</html>

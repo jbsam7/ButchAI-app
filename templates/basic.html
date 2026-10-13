@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Plan - How It Works</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/basic.css') }}">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-text">
+            Butch<span class="ai">AI</span>
+        </div>
+        <div class="nav-links-left">
+            <div class="dropdown">
+                <a href="#">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-text">
+            How the Basic Product Works
+        </div>
+        <!-- Removed the banner image as per your request -->
+    </div>
+
+    <!-- Section explaining the basic product -->
+    <div class="section">
+        <h2>What You Get with the Basic Plan</h2>
+        <p>
+            The Basic Plan is perfect for those who are just starting out or need a limited amount of AI narration. For only $7 a month, you get access to:
+        </p>
+        <ul>
+            <li>Up to 10 minutes of AI-powered text-to-speech narration each month.</li>
+            <li>Customizable narration tones to suit your content's style and tone.</li>
+            <li>Easy-to-use interface for uploading video and entering prompts for the best narration results.</li>
+            <li>Upgrade options available if you need more advanced features.</li>
+        </ul>
+        <!-- Example Image -->
+        <img src="{{ url_for('static', filename='images/bball.jpg') }}" alt="Basic Plan Features">
+    </div>
+
+    <!-- Call to Action section -->
+    <div class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>
+            Join the Basic Plan today for just $7 a month and start creating custom AI-powered narrations for your videos. It's simple and affordable!
+        </p>
+        <a href="/signup" class="cta-button">Sign Up Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div> 
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script src="{{ url_for('static', filename='js/basic.js') }}"></script>
+
+</body>
+</html>

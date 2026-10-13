@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Main Page</title>
+    <!-- Add google font link here-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+    <!-- Intro Overlay -->
+    <div class="intro-overlay">
+        <div class="intro-text">
+            <span class="welcome">Welcome to</span>
+            <span class="butch">Butch</span>
+            <span class="ai"> AI</span>
+        </div>
+    </div> 
+
+    <header>
+        <!-- Logo Text -->
+        <div class="logo-text" aria-label="ButchAI">
+            Butch<span class="ai">AI</span>
+        </div>
+    
+        <!-- Hamburger menu icon -->
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    
+        <!-- Left Navigation links -->
+        <div class="nav-links-left">
+            <a href="/">Home</a>
+            <!-- Dropdown for Features -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <!-- Right navigation links (Sign up and login)-->
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- First banner section -->
+        <div class="banner">
+            <div class="banner-text">
+                Just place your prompt, be creative, explore.
+            </div>
+        </div>
+
+        <div class="second-banner">
+            <!-- Container for left and right sections -->
+            <div class="second-banner-content">
+                <div class="second-banner-left">
+                    <div class="second-banner-text-container">
+                        <div class="second-banner-text">
+                            <h2>Upload Your Video – Let AI Narrate the Story</h2>
+                            <p> 
+                                Our tool analyzes the visuals in your video to create a unique, custom narration using advanced AI technology. Simply upload your video, and we’ll generate a personalized voiceover that highlights the key moments. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-banner-right">
+                    <div class="call-to-action">
+                        <h3>Get Started Today!</h3>
+                        <p>Experience an innovative way to add storytelling to your videos.</p>
+                        <a href="/signup" class="cta-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Scroll banner text -->
+            <div class="scroll-banner-text">
+                Narrate an ad for Butch AI<br>
+            </div> 
+        </div>
+        <div class="audio-container">
+            <audio id="audioPlayer">
+                <source src="{{ url_for('static', filename='video_summary_audio.mp3') }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button id="playPauseBtn" class="play">
+                &#9658; <!-- Play icon -->
+            </button>
+        </div>
+
+        <!-- Third banner section-->
+        <div class="third-banner">
+            <div class="third-banner-section">
+                <img src="{{ url_for('static', filename='images/bball.jpg') }}" alt="Business Ad Image">
+                <p>
+                    <strong>Explore New Possibilities for Your Brand’s Storytelling</strong><br>
+Looking for fresh, innovative ways to create marketing content? Our AI narration tool brings an artistic edge to videos by generating unique, frame-based voiceovers that help your brand’s message stand out. Ideal for creative social media campaigns, experimental ads, or engaging product highlights.
+                </p>
+            </div>
+            <div class="third-banner-section">
+                <img src="{{ url_for('static', filename='images/michael.png') }}" alt="Business Ad Image">
+                  
+                <p>
+                    <strong>Create Unique Narrations for Any Occasion</strong><br>
+Whether it's a memorable home video, a funny pet clip, or just a random moment caught on camera, our AI brings it to life with a custom narration! Perfect for personal use, social media fun, or adding a unique twist to any video. 
+                </p>
+            </div>
+        </div>
+
+        <!-- Subscription options-->
+        <div id="subscriptions" class="subscription-options">
+            <div class="subscription-tier">
+                <h3>Basic Tier - $7/month</h3>
+                <p>Access to basic narration services.<br> 
+                <em>Costs less than that random app you forgot to cancel.</em>
+                </p>
+                <a href="/signup">Subscribe to Basic</a> 
+            </div>
+            <div class="subscription-tier">
+                <h3>Premium Tier - $15/month</h3>
+                <p>Advanced narration with key frame analysis.<br> 
+                <em>Because you deserve more than silent home videos, right?</em>
+                </p>
+                <a href="/signup">Subscribe to Premium</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- Footer section-->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div> 
+    </footer>
+</body>
+</html>

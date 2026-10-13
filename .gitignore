@@ -1,0 +1,41 @@
+# Ignore virtual environments
+.venv/
+old_openai_env/
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore system files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore large or unnecessary data files
+/data/
+/logs/
+/uploads/
+/static/videos/
+/static/video_summary_audio.mp3
+/static/speech_openai.mp3
+
+# Ignore specific static files
+static/images/jordandog.jpg
+static/jojo.mov
+static/jordanpoopy.mp4
+
+
+
+# Ignore database files
+*.db
+
+# Ignore environment variables
+.env
+
+# Media and local data
+*.mp3
+*.mp4
+*.mov
+*.MOV
+users.db

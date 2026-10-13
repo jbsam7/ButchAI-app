@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Butch AI</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pricing.css') }}">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-text">
+            Butch<span class="ai">AI</span>
+        </div>
+        <div class="nav-links-left">
+            <div class="dropdown">
+                <a href="#">Features</a>
+                <div class="dropdown-content">
+                    <a href="/how-to-prompt">How to Prompt</a>
+                    <a href="/basic">Basic</a>
+                    <a href="/premium">Premium</a>
+                </div>
+            </div>
+            <a href="/">Home</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/contact">Contact</a>
+        </div>
+        <div class="nav-links-right">
+            <a href="/signup">Sign Up</a>
+            <a href="/login">Login</a>
+        </div>
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div class="banner-text">Choose the Plan That’s Right for You</div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="section">
+        <h2>Our Pricing Plans</h2>
+        <div class="pricing-table">
+            <!-- Basic Plan -->
+            <div class="pricing-plan">
+                <h3>Basic Plan</h3>
+                <p>$7 per month</p>
+                <ul>
+                    <li>10 minutes of narration each month</li>
+                    <li>Powered by OpenAI's text-to-speech</li>
+                    <li>Great for simple, fun narrations</li>
+                    <li>📌 "Costs less than that random app you forgot to cancel."</li>
+                </ul>
+                <a href="/signup" class="cta-button">Choose Basic</a>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="pricing-plan">
+                <h3>Premium Plan</h3>
+                <p>$15 per month</p>
+                <ul>
+                    <li>10 minutes of narration each month</li>
+                    <li>Enhanced voice quality with Eleven Labs</li>
+                    <li>Advanced key frame-based video analysis</li>
+                    <li>📌 "Because your videos deserve more than just silence."</li>
+                </ul>
+                <a href="/signup" class="cta-button">Choose Premium</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ButchAI. All rights reserved.</p>
+        <p>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy Policy</a>
+        </p>
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/x.png') }}" alt="X"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/yt.png') }}" alt="YouTube"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok"></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/insta.png') }}" alt="Instagram"></a>
+        </div> 
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu Toggle -->
+    <script src="{{ url_for('static', filename='js/pricing.js') }}"></script>
+
+    
+</body>
+</html>
